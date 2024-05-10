@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Website | Sign-Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to right, #4568DC, #B06AB3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        form {
+            max-width: 600px;
+            width: 100%;
+            margin: 7vh auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            animation: fadeIn 0.5s ease;
+            font-weight: 500;
+        }
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        legend {
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: xx-large;
+            color: #4568DC;
+            text-align: center;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .input-group label {
+            margin-right: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            color: #4568DC;
+            font-size: 18px;
+            padding: 12px 0;
+        }
+        .input-group input, .input-group select, .input-group textarea {
+            flex: 1;
+            padding: 12px 12px 12px 40px; /* Adjust padding to accommodate the icon */
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .input-group input[type="email"] {
+            width: 100%;
+        }
+        .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+            border-color: #4568DC;
+            box-shadow: 0 0 5px rgba(69, 104, 220, 0.5);
+        }
+        .input-group input.valid, .input-group select.valid, .input-group textarea.valid {
+            border-color: #2ecc71;
+            box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+        }
+        .input-group input.invalid, .input-group select.invalid, .input-group textarea.invalid {
+            border-color: #e74c3c;
+            box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+        }
+        textarea {
+            resize: none;
+        }
+        button {
+            padding: 12px 24px;
+            background-color: #4568DC;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #B06AB3;
+        }
+        #output {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 3vh;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+            width: 50%;
+            margin-bottom: 5vh;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        #my-account {
+            font-size: xx-large;
+        }
+        #email-add {
+            text-decoration: underline;
+        }
+        #profile-icon {
+            display: block;
+            margin: 0 auto;
+            font-size: 10vh;
+            color: #4568DC;
+        }
+        .my-account-info {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <form id="signupForm">
+        <fieldset>
+            <legend>Sign Up</legend>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="name" placeholder="Name" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-user-circle"></i>
+                <input type="text" id="username" placeholder="Preferred Username" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-venus-mars"></i>
+                <select id="gender" required>
+                    <option value="" disabled selected>-- Gender --</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" id="address" placeholder="Address" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-book"></i>
+                <textarea id="interest" rows="3" placeholder="&#10;Interests" required></textarea>
+            </div>
+        </fieldset>
+        <div style="display: flex; justify-content: flex-end;">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+    <div id="output"></div>
+    <p>&copy; 2024 Datang, 9 - Potassium</p>
+
+    <script>
+        const form = document.getElementById('signupForm');
+        const output = document.getElementById('output');
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            output.innerHTML = `
+                <p id="my-account"><strong>My Account</strong></p>
+                <i id="profile-icon" class="fas fa-user-circle"></i>
+                <br>
+                <p class="my-account-info"><strong>Name</strong></p>
+                <p>${form.name.value}</p>
+                <br>
+                <p class="my-account-info"><strong>Preferred Username</strong></p>
+                <p>${form.username.value}</p>
+                <br>
+                <i class="fas fa-venus-mars"></i>
+                <p class="my-account-info"><strong>Gender</strong></p>
+                <p>${form.gender.value}</p>
+                <br>
+                <i class="fas fa-lock"></i>
+                <p class="my-account-info"><strong>Password</strong></p>
+                <p><span id="passwordOutput">${form.password.value}</span></p>
+                <br>
+                <i class="fas fa-envelope"></i>
+                <p class="my-account-info"><strong>Email Address</strong></p>
+                <p><span id="email-add">${form.email.value}</span></p>
+                <br>
+                <i class="fas fa-map-marker-alt"></i>
+                <p class="my-account-info"><strong>Address</strong></p>
+                <p>${form.address.value}</p>
+                <br>
+                <i class="fas fa-book"></i>
+                <p class="my-account-info"><strong>Interests</strong></p>
+                <p>${form.interest.value}</p>
+                <br>
+                <button onclick="togglePasswordVisibility()">Toggle Password Visibility</button>
+            `;
+            output.style.animation = 'fadeIn 0.5s ease';
+            output.style.display = 'block';
+            output.scrollIntoView();
+        });
+
+        form.addEventListener('reset', function() {
+            output.innerHTML = '';
+            output.style.display = 'none';
+            inputs.forEach(input => {
+                input.classList.remove('valid');
+            });
+        });
+
+        const inputs = document.querySelectorAll('.input-group input, .input-group select, .input-group textarea');
+
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (input.checkValidity()) {
+                    input.classList.add('valid');
+                    input.classList.remove('invalid');
+                } else {
+                    input.classList.add('invalid');
+                    input.classList.remove('valid');
+                }
+            });
+        });
+
+        function togglePasswordVisibility() {
+            const passwordOutput = document.getElementById('passwordOutput');
+            if (passwordOutput.textContent.startsWith('*')) {
+                passwordOutput.textContent = form.password.value;
+            } else {
+                passwordOutput.textContent = '*'.repeat(form.password.value.length);
+            }
+        }
+    </script>
+</body>
+</html>
